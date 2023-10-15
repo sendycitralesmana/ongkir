@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  
   var hiddenKotaAsal = true.obs;
   var provIdAsal = 0.obs;
   var kotaIdAsal = 0.obs;
@@ -13,10 +12,21 @@ class HomeController extends GetxController {
   var provIdTujuan = 0.obs;
   var kotaIdTujuan = 0.obs;
 
+  var hiddenButton = true.obs;
+  var kurir = "".obs;
+
   double berat = 0.0;
   String satuan = "gram";
 
   late TextEditingController weightC;
+
+  void showButton() {
+    if (kotaIdAsal != 0 && kotaIdTujuan != 0 && berat > 0 && kurir != "") {
+      hiddenButton.value = false;
+    } else {
+      hiddenButton.value = true;
+    }
+  }
 
   void ubahBerat(String value) {
     berat = double.tryParse(value) ?? 0.0;
@@ -61,7 +71,7 @@ class HomeController extends GetxController {
       default:
         berat = berat;
     }
-
+    showButton();
     print("$berat gram");
   }
 
@@ -110,7 +120,7 @@ class HomeController extends GetxController {
     }
 
     satuan = value;
-
+    showButton();
     print("$berat gram");
   }
 

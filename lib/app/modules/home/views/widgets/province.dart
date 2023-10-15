@@ -40,6 +40,7 @@ class Provinsi extends GetView<HomeController> {
         itemAsString: (item) => item.province!,   // menampilkan nama province ketika dipilih
         dropdownDecoratorProps: DropDownDecoratorProps(
           dropdownSearchDecoration: InputDecoration(
+            border: OutlineInputBorder(),
             labelText: tipe == "asal" 
               ? "Provinsi Asal"
               : "Provinsi Tujuan",
@@ -86,6 +87,7 @@ class Provinsi extends GetView<HomeController> {
               controller.hiddenKotaTujuan.value = false;
               controller.provIdTujuan.value = int.parse(prov.provinceId!);
             }
+            controller.showButton();
           } else {
             print("Tidak memilih provinsi apapun");
             if (tipe == "asal") {

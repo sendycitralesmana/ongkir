@@ -41,6 +41,7 @@ class Kota extends GetView<HomeController> {
         itemAsString: (item) => "${item.type} ${item.cityName}",   // menampilkan nama province ketika dipilih
         dropdownDecoratorProps: DropDownDecoratorProps(
           dropdownSearchDecoration: InputDecoration(
+            border: OutlineInputBorder(),
             labelText: tipe == "asal" ? "Kota / Kabupaten Asal" : "Kota / Kabupaten Tujuan",
             hintText: "Cari Kota / Kabupaten"
           ),
@@ -83,18 +84,16 @@ class Kota extends GetView<HomeController> {
             } else {
               controller.kotaIdTujuan.value = int.parse(cityValue.cityId!);
             }
+            controller.showButton();
           } else {
             print("Tidak memilih provinsi apapun");
             if (tipe == "asal") {
               print("Tidak memilih kota / kabupaten apapun");
+              controller.kotaIdAsal.value = 0;
             } else {
               print("Tidak memilih kota / kabupaten apapun");
+              controller.kotaIdTujuan.value = 0;
             }
-          }
-          if (cityValue != null) {
-            print(cityValue!.cityName);
-          } else {
-            print("Tidak memilih kota / kabupaten apapun");
           }
         },
       ),
