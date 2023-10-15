@@ -12,5 +12,8 @@ void main() async {
       "key" : "ff3b7f2ad44df5fbbbebeb43ebd8b1d0",
     },
   );
+
+  var data = jsonDecode(response.body) as Map<String, dynamic>;
+
   print(response.body);
 }
