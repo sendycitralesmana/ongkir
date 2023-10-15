@@ -84,7 +84,6 @@ class Kota extends GetView<HomeController> {
             } else {
               controller.kotaIdTujuan.value = int.parse(cityValue.cityId!);
             }
-            controller.showButton();
           } else {
             print("Tidak memilih provinsi apapun");
             if (tipe == "asal") {
@@ -95,6 +94,7 @@ class Kota extends GetView<HomeController> {
               controller.kotaIdTujuan.value = 0;
             }
           }
+          controller.showButton();
         },
       ),
     );

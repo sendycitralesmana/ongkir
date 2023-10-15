@@ -5,19 +5,12 @@ import 'package:ongkir/app/data/models/user_model.dart';
 
 void main() async {
 
-  Uri url = Uri.parse("https://api.rajaongkir.com/starter/cost");
-  final response = await http.post(
+  Uri url = Uri.parse("https://api.rajaongkir.com/starter/province");
+  final response = await http.get(
     url,
     headers: {
       "key" : "ff3b7f2ad44df5fbbbebeb43ebd8b1d0",
-      'content-type' : 'application/x-www-form-urlencoded',
     },
-    body: {
-      'origin' : '501',
-      'destination' : '114',
-      'weight' : '1700',
-      'courier' : 'jne',
-    }
   );
 
   var data = jsonDecode(response.body) as Map<String, dynamic>;

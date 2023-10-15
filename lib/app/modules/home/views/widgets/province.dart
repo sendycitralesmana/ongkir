@@ -87,7 +87,6 @@ class Provinsi extends GetView<HomeController> {
               controller.hiddenKotaTujuan.value = false;
               controller.provIdTujuan.value = int.parse(prov.provinceId!);
             }
-            controller.showButton();
           } else {
             print("Tidak memilih provinsi apapun");
             if (tipe == "asal") {
@@ -98,6 +97,7 @@ class Provinsi extends GetView<HomeController> {
               controller.provIdTujuan.value = 0;
             }
           }
+          controller.showButton();
         },
       ),
     );
